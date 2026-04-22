@@ -66,14 +66,8 @@ Amazon S3             ← Static website origin (private bucket + OAC)
 
 ## 🧱 Challenges & What I Learned
 
-**Challenge 1: S3 bucket policy not working with CloudFront**
-Initially configured S3 for public access, then switched to OAC. Had to update the bucket policy to reference the correct CloudFront distribution ARN. Learned the difference between OAI (legacy) and OAC (current best practice).
-
-**Challenge 2: ACM certificate region**
+**Challenge 1: ACM certificate region**
 ACM certificate must be created in `us-east-1` (North Virginia) for CloudFront to use it, even if the S3 bucket is in a different region. This was not obvious and caused initial deployment failure.
-
-**Challenge 3: WAF association**
-WAF Web ACL must also be created in `us-east-1` to be attachable to a CloudFront distribution (same regional requirement as ACM).
 
 ---
 
