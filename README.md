@@ -8,6 +8,8 @@ Results: https://aaronleow.me/
 
 ## 📐 Architecture
 
+![Architecture Diagram](screenshots/architecture.png)
+
 ```
 User Request
      │
