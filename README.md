@@ -66,7 +66,10 @@ Amazon S3             ← Static website origin (private bucket + OAC)
 
 ## 🧱 Challenges & What I Learned
 
-**Challenge 1: ACM certificate region**
+**Challenge 1: Understanding why S3 buckets need to remain private**
+Initially assumed the S3 bucket needed to be public for the website to be accessible. Learned that with CloudFront + OAC, the bucket should remain private — CloudFront is the only entity that fetches from S3, using a signed request. This is more secure than public bucket hosting because direct S3 access is blocked entirely.
+
+**Challenge 2: ACM certificate region**
 ACM certificate must be created in `us-east-1` (North Virginia) for CloudFront to use it, even if the S3 bucket is in a different region. This was not obvious and caused initial deployment failure.
 
 ---
